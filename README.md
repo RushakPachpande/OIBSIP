@@ -25,6 +25,19 @@ The system allows user registration and login, authentication, balance inquiry, 
 
 This project demonstrates fundamental concepts in Java such as file handling, object-oriented programming (OOP), and basic banking functionalities.
 
+## **2. Number Guessing Game** ## 
+It is a simple Java-based game where the computer randomly generates a number between 1 and 100, and the user has to guess it.
+The game provides feedback on whether the guessed number is too high, too low, or correct and also assigns points.
+  ### Features : 
+  - The system generates a random number in the range of 1 to 100.
+  - The user guesses the number, and the system gives feedback (too high, too low, or correct).
+  - A limited number of attempts (10 attempts).
+  - Option to play multiple rounds.
+  - Displays the number of attempts taken to guess the correct number.
+  - Assigns a score based on number of attempts.
+
+This project is a great way to practice basic Java concepts such as loops, conditional statements, and random number generation.
+
 ## Technologies Used
 
 - Java
