@@ -1,0 +1,38 @@
+CREATE TABLE Users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    Role VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Train (
+    TrainID INT AUTO_INCREMENT PRIMARY KEY,
+    TrainNumber VARCHAR(20) NOT NULL UNIQUE,
+    TrainName VARCHAR(100) NOT NULL,
+    Source VARCHAR(50) NOT NULL,
+    Destination VARCHAR(50) NOT NULL,
+    ClassType VARCHAR(20) NOT NULL,
+    Availability INT NOT NULL
+);
+
+CREATE TABLE Reservation (
+    ReservationID INT AUTO_INCREMENT PRIMARY KEY,
+    PNRNumber VARCHAR(20) NOT NULL UNIQUE,
+    UserID INT NOT NULL,
+    TrainID INT NOT NULL,
+    DateOfJourney DATE NOT NULL,
+    FromLocation VARCHAR(50) NOT NULL,
+    ToLocation VARCHAR(50) NOT NULL,
+    ClassType VARCHAR(20) NOT NULL,
+    Status VARCHAR(20) NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (TrainID) REFERENCES Train(TrainID)
+);
+
+CREATE TABLE Cancellation (
+    CancellationID INT AUTO_INCREMENT PRIMARY KEY,
+    PNRNumber VARCHAR(20) NOT NULL,
+    CancellationDate DATE NOT NULL,
+    RefundAmount DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (PNRNumber) REFERENCES Reservation(PNRNumber)
+);
